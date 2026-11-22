@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111a26"><title>달빛 정원 · 디오라마 산책</title>
+<link rel="stylesheet" href="garden.css"></head><body>
+<main id="garden" aria-label="달빛 정원 3D 산책">
+  <canvas id="world" tabindex="0" aria-label="3D 정원. 방향키로 마법사를 움직이거나 바닥을 눌러 걸어가세요."></canvas><canvas id="effects" aria-hidden="true"></canvas>
+  <header><div class="identity"><span class="moon" aria-hidden="true">☾</span><div><h1>달빛 정원</h1><p id="place">룬 제단</p></div></div>
+  <div class="actions"><button id="sound" aria-pressed="false" aria-label="정원 소리">소리 켜기</button><button id="home" title="위치와 체력을 초기화">처음 위치</button><button id="help" aria-controls="guide" aria-expanded="false">조작법</button></div></header>
+  <section id="vitals" aria-label="전투 체력">
+    <div class="vital"><div class="vital-label"><label for="mage-hp">마법사</label><span id="mage-value">100 / 100</span></div><progress id="mage-hp" max="100" value="100"></progress></div>
+    <div class="vital enemy" id="enemy-vital" hidden><div class="vital-label"><label for="giant-hp">숲의 골렘</label><span id="giant-value">160 / 160</span></div><progress id="giant-hp" max="160" value="160"></progress></div>
+    <div id="combat-note" role="status"></div>
+  </section>
+  <aside id="guide" hidden><h2>정원 산책</h2><dl>
+  <dt>걷기</dt><dd>W A S D · 방향키 · 바닥 누르기</dd><dt>둘러보기</dt><dd>화면 드래그</dd><dt>확대·축소</dt><dd>휠 · 두 손가락 모으기</dd><dt>월광 나선</dt><dd>Space · 가까운 골렘 자동 조준</dd>
+  <dt>낙성</dt><dd>R · 골렘 위로 불타는 운석 소환</dd><dt>점멸</dt><dd>Shift · 이동 방향으로 순간이동</dd>
+  </dl><p>골렘이 팔을 들고 땅이 호박색으로 물들면, 바위가 솟기 전에 범위를 벗어나세요.</p><div class="modes"><span>화면 방식</span> <a href="?render=lite">경량</a> <a href="?render=webgl">고화질 3D</a></div></aside>
+  <div id="loading" role="status">정원을 여는 중…</div>
+  <footer><div class="walk-hint"><span class="key">W</span><span class="key">A</span><span class="key">S</span><span class="key">D</span><span class="desktop-hint">이동</span><span class="divider"></span><span>바닥을 눌러 걷기</span></div>
+  <div class="skills"><button id="blink" title="이동 방향으로 순간이동">점멸 <kbd>Shift</kbd><small></small></button>
+  <button id="spell"><span aria-hidden="true">✧</span><strong id="spell-label">월광 나선</strong><kbd>Space</kbd></button>
+  <button id="meteor" title="불타는 운석 소환">낙성 <kbd>R</kbd><small></small></button></div></footer>
+</main><script src="garden-data.js"></script><script src="lite.js"></script><script src="renderer.js"></script><script src="impact-art.js"></script><script src="sound.js"></script><script src="game.js"></script></body></html>
